@@ -8,4 +8,5 @@ class Menu:
         self.name = name
         self.ingredients = ingredients
         self.price = price
+        self.LstDish = []
     

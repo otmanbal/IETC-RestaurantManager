@@ -1,28 +1,44 @@
 from Dish import Dish
 
-def AddDish(id, name, ingredients, price):
+def AddDish(self, id, name, ingredients, price):
     """
     Cette fonction permet d'ajouter un plat au menu.
     """
-    pass
+    Dish = Dish(id, name, ingredients, price)
+    self.LstDish.append(Dish)
+    return
 
 
-def RemoveDish(id, name, ingredients, price):
+def RemoveDish(self, id):
     """
-    Cette fonction permet de supprimer un plat du menu..
+    Cette fonction permet de supprimer un plat du menu.
     """
-    pass
+    for Dish in self.LstDish:
+        if Dish.id == id:
+            self.LstDish.remove(Dish)
+        return
 
 
-def ModifyDish(id, name, ingredients, price):
+def ModifyDish(self, id, name=None, ingredients=None, price=None):
     """
     Cette fonction permet de modifier un plat du menu.
     """
-    pass
+    for Dish in self.LstDish:
+        if Dish.id == id:
+            if name:
+                Dish.name = name
+            if ingredients:
+                Dish.ingredients = ingredients
+            if price:
+                Dish.price = price
+        return
+    
 
-
-def ReadDish(id, name, ingredients, price):
+def ReadDish(self, id, name, ingredients, price):
     """
     Cette fonction permet de lire un plat du menu.
     """
-    pass
+    for Dish in self.LstDish:
+        if Dish.id == id:
+            print(f"Name: {Dish.name}, Ingredients: {Dish.ingredients}, Price: {Dish.price}")
+        return

@@ -1,44 +1,46 @@
-from Starter import Starter
+from models.Starter import Starter
 
-def AddStarter(self, id, name, ingredients, price):
+LstStarter = []
+
+def AddStarter(id, name, ingredients, price):
     """
     Cette fonction permet d'ajouter une entrée au menu.
     """
-    Starter = Starter(id, name, ingredients, price)
-    self.LstStarter.append(Starter)
+    starter = Starter(id, name, ingredients, price)
+    LstStarter.append(starter)
     return
 
 
-def RemoveStarter(self, id):
+def RemoveStarter(id):
     """
     Cette fonction permet de supprimer une entrée du menu.
     """
-    for Starter in self.LstStarter:
-        if Starter.id == id:
-            self.LstStarter.remove(Starter)
+    for starter in LstStarter:
+        if starter.id == id:
+            LstStarter.remove(starter)
         return
 
 
-def ModifyStarter(self, id, name=None, ingredients=None, price=None):
+def ModifyStarter(id, name=None, ingredients=None, price=None):
     """
     Cette fonction permet de modifier une entrée du menu.
     """
-    for Starter in self.LstStarter:
-        if Starter.id == id:
+    for starter in LstStarter:
+        if starter.id == id:
             if name:
-                Starter.name = name
+                starter.name = name
             if ingredients:
-                Starter.ingredients = ingredients
+                starter.ingredients = ingredients
             if price:
-                Starter.price = price
+                starter.price = price
             return
 
 
-def ReadStarter(self, id, name, ingredients, price):
+def ReadStarter(id, name, ingredients, price):
     """
     Cette fonction permet de lire une entrée du menu.
     """
-    for Starter in self.LstStarter:
-        if Starter.id == id:
-            print(f"Name: {Starter.name}, Ingredients: {Starter.ingredients}, Price: {Starter.price}")
+    for starter in LstStarter:
+        if starter.id == id:
+            print(f"Name: {starter.name}, Ingredients: {starter.ingredients}, Price: {starter.price}")
         return

@@ -1,44 +1,46 @@
-from Dessert import Dessert
+from models.Dessert import Dessert
 
-def AddDessert(self, id, name, ingredients, price):
+LstDessert = []
+
+def AddDessert(id, name, ingredients, price):
     """
     Cette fonction permet d'ajouter un dessert à la liste des desserts.
     """
-    Dessert = Dessert(id, name, ingredients, price)
-    self.LstDessert.append(Dessert)
+    dessert = Dessert(id, name, ingredients, price)
+    LstDessert.append(dessert)
     return
 
 
-def RemoveDessert(self, id):
+def RemoveDessert(id):
     """
     Cette fonction permet de supprimer un dessert de la liste des desserts.
     """
-    for Dessert in self.LstDessert:
-        if Dessert.id == id:
-            self.LstDessert.remove(Dessert)
+    for dessert in LstDessert:
+        if dessert.id == id:
+            LstDessert.remove(dessert)
         return
 
 
-def ModifyDessert(self, id, name=None, ingredients=None, price=None):
+def ModifyDessert(id, name=None, ingredients=None, price=None):
     """
     Cette fonction permet de modifier un dessert de la liste des desserts.
     """
-    for Dessert in self.LstDessert:
-        if Dessert.id == id:
+    for dessert in LstDessert:
+        if dessert.id == id:
             if name:
-                Dessert.name = name
+                dessert.name = name
             if ingredients:
-                Dessert.ingredients = ingredients
+                dessert.ingredients = ingredients
             if price:
-                Dessert.price = price
+                dessert.price = price
             return
 
 
-def ReadDessert(self, id, name, ingredients, price):
+def ReadDessert(id, name, ingredients, price):
     """
     Cette fonction permet de lire un dessert de la liste des desserts.
     """
-    for Dessert in self.LstDessert:
-        if Dessert.id == id:
-            print(f"Name: {Dessert.name}, Ingredients: {Dessert.ingredients}, Price: {Dessert.price}")
+    for dessert in LstDessert:
+        if dessert.id == id:
+            print(f"Name: {dessert.name}, Ingredients: {dessert.ingredients}, Price: {dessert.price}")
         return

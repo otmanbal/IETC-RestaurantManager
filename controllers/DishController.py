@@ -1,44 +1,46 @@
-from Dish import Dish
+from models.Dish import Dish
 
-def AddDish(self, id, name, ingredients, price):
+LstDish = []
+
+def AddDish(id, name, ingredients, price):
     """
     Cette fonction permet d'ajouter un plat au menu.
     """
-    Dish = Dish(id, name, ingredients, price)
-    self.LstDish.append(Dish)
+    dish = Dish(id, name, ingredients, price)
+    LstDish.append(dish)
     return
 
 
-def RemoveDish(self, id):
+def RemoveDish(id):
     """
     Cette fonction permet de supprimer un plat du menu.
     """
-    for Dish in self.LstDish:
-        if Dish.id == id:
-            self.LstDish.remove(Dish)
+    for dish in LstDish:
+        if dish.id == id:
+            LstDish.remove(dish)
         return
 
 
-def ModifyDish(self, id, name=None, ingredients=None, price=None):
+def ModifyDish(id, name=None, ingredients=None, price=None):
     """
     Cette fonction permet de modifier un plat du menu.
     """
-    for Dish in self.LstDish:
-        if Dish.id == id:
+    for dish in LstDish:
+        if dish.id == id:
             if name:
-                Dish.name = name
+                dish.name = name
             if ingredients:
-                Dish.ingredients = ingredients
+                dish.ingredients = ingredients
             if price:
-                Dish.price = price
+                dish.price = price
         return
     
 
-def ReadDish(self, id, name, ingredients, price):
+def ReadDish(id, name, ingredients, price):
     """
     Cette fonction permet de lire un plat du menu.
     """
-    for Dish in self.LstDish:
-        if Dish.id == id:
-            print(f"Name: {Dish.name}, Ingredients: {Dish.ingredients}, Price: {Dish.price}")
+    for dish in LstDish:
+        if dish.id == id:
+            print(f"Name: {dish.name}, Ingredients: {dish.ingredients}, Price: {dish.price}")
         return

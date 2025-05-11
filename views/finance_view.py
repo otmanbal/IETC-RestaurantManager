@@ -7,3 +7,12 @@ class FinanceView(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Finance View")
+
+        layout = QVBoxLayout(self)
+
+        # Tableau du haut : paiements
+        self.payment_table = QTableWidget()
+        self.payment_table.setColumnCount(5)
+        self.payment_table.setHorizontalHeaderLabels(["ID", "Table No.", "Date", "Payment Type", "Price"])
+        self.payment_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.payment_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)

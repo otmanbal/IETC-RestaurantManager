@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "table_no": 3,
+        "date": "2025-05-10",
+        "payment_type": "Card",
+        "price": 85.50
+    },
+    {
+        "id": 2,
+        "table_no": 5,
+        "date": "2025-05-10",
+        "payment_type": "Cash",
+        "price": 42.00
+    },
+    {
+        "id": 3,
+        "table_no": 1,
+        "date": "2025-05-11",
+        "payment_type": "Card",
+        "price": 64.75
+    },
+    {
+        "id": 4,
+        "table_no": 2,
+        "date": "2025-05-11",
+        "payment_type": "Card",
+        "price": 58.25
+    },
+    {
+        "id": 5,
+        "table_no": 4,
+        "date": "2025-05-12",
+        "payment_type": "Cash",
+        "price": 120.00
+    },
+    {
+        "id": 6,
+        "table_no": 2,
+        "date": "2025-05-12",
+        "payment_type": "Card",
+        "price": 75.00
+    },
+    {
+        "id": 7,
+        "table_no": 3,
+        "date": "2025-05-13",
+        "payment_type": "Card",
+        "price": 95.50
+    },
+    {
+        "id": 8,
+        "table_no": 1,
+        "date": "2025-05-13",
+        "payment_type": "Cash",
+        "price": 35.25
+    },
+    {
+        "id": 9,
+        "table_no": 5,
+        "date": "2025-05-13",
+        "payment_type": "Card",
+        "price": 80.00
+    },
+    {
+        "id": 10,
+        "table_no": 2,
+        "date": "2025-05-14",
+        "payment_type": "Cash",
+        "price": 100.00
+    }
+]

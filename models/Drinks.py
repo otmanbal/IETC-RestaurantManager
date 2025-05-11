@@ -7,3 +7,4 @@ class Drinks(Menu):
     """
     def __init__(self, id, name, ingredients, price):
         super().__init__(id, name, ingredients, price)
+        

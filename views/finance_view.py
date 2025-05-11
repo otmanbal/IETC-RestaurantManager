@@ -23,3 +23,10 @@ class FinanceView(QWidget):
         self.daily_total_table.setHorizontalHeaderLabels(["ID", "Date", "Daily Total"])
         self.daily_total_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.daily_total_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+
+        layout.addWidget(QLabel("Payment Records"))
+        layout.addWidget(self.payment_table)
+        layout.addWidget(QLabel("Daily Totals"))
+        layout.addWidget(self.daily_total_table)
+
+        self.setLayout(layout)

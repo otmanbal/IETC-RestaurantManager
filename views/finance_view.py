@@ -12,6 +12,12 @@ class FinanceView(QWidget):
 
         # Création du tableau du haut : détails des paiements
         self.payment_table = QTableWidget()
+        # Hauteur de 10 lignes visibles + l'en-tête
+        row_height = self.payment_table.verticalHeader().defaultSectionSize()
+        header_height = self.payment_table.horizontalHeader().height()
+        # Petite marge en plus pour éviter la coupure basse
+        self.payment_table.setMaximumHeight(row_height * 10 + header_height + 10)
+        
         self.payment_table.setColumnCount(5)
         self.payment_table.setHorizontalHeaderLabels(["ID", "Table No.", "Date", "Payment Type", "Price"])
         self.payment_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)

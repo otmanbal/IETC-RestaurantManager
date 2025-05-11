@@ -16,3 +16,10 @@ class FinanceView(QWidget):
         self.payment_table.setHorizontalHeaderLabels(["ID", "Table No.", "Date", "Payment Type", "Price"])
         self.payment_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.payment_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+
+        # Tableau du bas : totaux journaliers
+        self.daily_total_table = QTableWidget()
+        self.daily_total_table.setColumnCount(3)
+        self.daily_total_table.setHorizontalHeaderLabels(["ID", "Date", "Daily Total"])
+        self.daily_total_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.daily_total_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)

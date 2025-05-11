@@ -10,12 +10,15 @@ class FinanceView(QWidget):
 
         layout = QVBoxLayout(self)
 
-        # Tableau du haut : paiements
+        # Création du tableau du haut : détails des paiements
         self.payment_table = QTableWidget()
         self.payment_table.setColumnCount(5)
         self.payment_table.setHorizontalHeaderLabels(["ID", "Table No.", "Date", "Payment Type", "Price"])
         self.payment_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.payment_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        # Limiter la hauteur visible à 10 lignes
+        self.payment_table.setMaximumHeight(self.payment_table.verticalHeader().defaultSectionSize() * 10 + 30)
+
 
         # Tableau du bas : totaux journaliers
         self.daily_total_table = QTableWidget()

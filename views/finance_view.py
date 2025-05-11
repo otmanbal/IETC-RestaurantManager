@@ -30,3 +30,15 @@ class FinanceView(QWidget):
         layout.addWidget(self.daily_total_table)
 
         self.setLayout(layout)
+
+
+        def populate_payments(self, payment_list):
+        self.payment_table.setRowCount(0)
+        for record in payment_list:
+            row = self.payment_table.rowCount()
+            self.payment_table.insertRow(row)
+            self.payment_table.setItem(row, 0, QTableWidgetItem(str(record["id"])))
+            self.payment_table.setItem(row, 1, QTableWidgetItem(str(record["table_no"])))
+            self.payment_table.setItem(row, 2, QTableWidgetItem(record["date"]))
+            self.payment_table.setItem(row, 3, QTableWidgetItem(record["payment_type"]))
+            self.payment_table.setItem(row, 4, QTableWidgetItem(f"{record['price']:.2f}"))

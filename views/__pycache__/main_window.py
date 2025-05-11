@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QMainWindow, QTabWidget
 from finance_view import FinanceView
-from controller.finance_controller import FinanceController
+from controllers.finance_controller import FinanceController
 
 class FenetrePrincipale(QMainWindow):
     def __init__(self):

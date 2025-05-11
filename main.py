@@ -1,14 +1,15 @@
 import sys
 from PySide6.QtWidgets import QApplication
-from view.finance_view import FinanceView
-from controller.finance_controller import FinanceController
+from views.finance_view import FinanceView
+from controllers.finance_controller import FinanceController
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     view = FinanceView()
     controller = FinanceController(view)
-    controller.load_and_display_data("data/reservations.json")
-
+    controller.load_and_display_data("database/reservation.json")
+    view.setWindowTitle("Restaurant Manager")
+    view.resize(1000, 600)
     view.show()
     sys.exit(app.exec())

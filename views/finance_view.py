@@ -32,7 +32,7 @@ class FinanceView(QWidget):
         self.setLayout(layout)
 
 
-        def populate_payments(self, payment_list):
+    def populate_payments(self, payment_list):
         self.payment_table.setRowCount(0)
         for record in payment_list:
             row = self.payment_table.rowCount()
@@ -42,3 +42,12 @@ class FinanceView(QWidget):
             self.payment_table.setItem(row, 2, QTableWidgetItem(record["date"]))
             self.payment_table.setItem(row, 3, QTableWidgetItem(record["payment_type"]))
             self.payment_table.setItem(row, 4, QTableWidgetItem(f"{record['price']:.2f}"))
+
+    def populate_daily_totals(self, totals_list):
+        self.daily_total_table.setRowCount(0)
+        for record in totals_list:
+            row = self.daily_total_table.rowCount()
+            self.daily_total_table.insertRow(row)
+            self.daily_total_table.setItem(row, 0, QTableWidgetItem(str(record["id"])))
+            self.daily_total_table.setItem(row, 1, QTableWidgetItem(record["date"]))
+            self.daily_total_table.setItem(row, 2, QTableWidgetItem(f"{record['total']:.2f}"))

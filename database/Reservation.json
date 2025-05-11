@@ -8,7 +8,7 @@
     {"id": 7, "table_no": 2, "date": "2025-05-03", "payment_type": "Cash", "price": 18.40},
     {"id": 8, "table_no": 3, "date": "2025-05-03", "payment_type": "Card", "price": 64.00},
     {"id": 9, "table_no": 4, "date": "2025-05-03", "payment_type": "Card", "price": 45.25},
-    {"id": 10, "table_no": 5, "date": "2025-05-03", "payment_type": "Cash", "price": 70.00"},
+    {"id": 10, "table_no": 5, "date": "2025-05-03", "payment_type": "Cash", "price": 70.00},
     {"id": 11, "table_no": 1, "date": "2025-05-04", "payment_type": "Card", "price": 55.00},
     {"id": 12, "table_no": 2, "date": "2025-05-04", "payment_type": "Cash", "price": 42.00},
     {"id": 13, "table_no": 3, "date": "2025-05-04", "payment_type": "Card", "price": 66.75},

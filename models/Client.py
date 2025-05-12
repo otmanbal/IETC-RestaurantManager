@@ -1,14 +1,15 @@
 class Client:
+    def __init__(self, id, nom, telephone):
+        self.id = id
+        self.nom = nom
+        self.telephone = telephone
 
-    
-    def __init__(self, client_id, name, group_size):
+    def to_dict(self):
         """
-            Constructeur de la classe Client pour initialiser
-            Chaque client qui aura un ID unique le nom, 
-            le nombre de personnes et la table assignée 
-            initialisée à None (aucune table attribuée au départ).
+            Convertit l'objet Client en dictionnaire pour l'enregistrement JSON.
         """
-        self.client_id = client_id       
-        self.name = name
-        self.group_size = group_size
-        self.assigned_table = None
+        return {
+            "id": self.id,
+            "nom": self.nom,
+            "telephone": self.telephone
+        }

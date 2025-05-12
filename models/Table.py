@@ -1,12 +1,10 @@
 class Table:
-
-    
-    def __init__(self, number, capacity):
+    def __init__(self, id, capacite, disponible = True):
         """
-            Constructeur de la classe Table : 
-            initialise le numéro, la capacite et l’etat 
-            de disponibilité (libre par défaut)
+            id : identifiant unique de la table (int)
+            capacite : nombre de personnes que peut accueillir la table (int)
+            disponible : booléen indiquant si la table est disponible
         """
-        self.number = number          
-        self.capacity = capacity  
-        self.is_free = True 
+        self.id = id
+        self.capacite = capacite
+        self.disponible = disponible

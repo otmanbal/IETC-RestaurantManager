@@ -13,3 +13,14 @@ class Client:
             "nom": self.nom,
             "telephone": self.telephone
         }
+
+    @staticmethod
+    def from_dict(data):
+        """
+            Crée un objet Client à partir d'un dictionnaire (chargé depuis JSON).
+        """
+        return Client(
+            data["id"],
+            data["nom"],
+            data["telephone"]
+        )

@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 from PySide6.QtWidgets import QApplication
+from views.test import FenetrePrincipale
 
 from controllers.TableController import TableController
 

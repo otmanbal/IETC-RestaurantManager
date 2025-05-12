@@ -8,3 +8,14 @@ class Table:
         self.id = id
         self.capacite = capacite
         self.disponible = disponible
+
+
+    def to_dict(self):
+        """
+            Convertit l'objet Table en dictionnaire pour l'enregistrement JSON.
+        """
+        return {
+            "id": self.id,
+            "capacite": self.capacite,
+            "disponible": self.disponible
+        }

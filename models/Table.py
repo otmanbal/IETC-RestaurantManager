@@ -19,3 +19,14 @@ class Table:
             "capacite": self.capacite,
             "disponible": self.disponible
         }
+    
+    @staticmethod
+    def from_dict(data):
+        """
+            Crée un objet Table à partir d'un dictionnaire (chargé depuis JSON).
+        """
+        return Table(
+            data["id"],
+            data["capacite"],
+            data["disponible"]
+        )

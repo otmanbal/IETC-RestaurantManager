@@ -4,5 +4,5 @@ class FinanceView(QWidget):
     def __init__(self):
         super().__init__()
         layout = QVBoxLayout()
-        layout.addWidget(QLabel("Vue des tables"))
+        layout.addWidget(QLabel("Vue des finances"))
         self.setLayout(layout)

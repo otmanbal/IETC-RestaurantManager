@@ -10,7 +10,7 @@ from views.financeView import FinanceView
 from views.profileView import ProfileView 
 from views.adminView import AdminView
 
-class FenetrePrincipale(QMainWindow):
+class mainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Restaurant Manager")

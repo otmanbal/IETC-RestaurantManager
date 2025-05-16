@@ -1,0 +1,75 @@
+{
+    "entrees": [
+    {
+        "nom": "Brick à l'œuf",
+        "description": "Feuille de brick croustillante garnie d’un œuf, de thon et de câpres",
+        "prix": 6.50
+    },
+    {
+        "nom": "Salade méchouia",
+        "description": "Poivrons, tomates et oignons grillés assaisonnés à l'huile d'olive",
+        "prix": 5.00
+    },
+    {
+        "nom": "Pastels sénégalais",
+        "description": "Beignets farcis au poisson épicé, servis avec sauce tomate",
+        "prix": 7.00
+    }
+    ],
+    "plats": [
+    {
+        "nom": "Couscous royal",
+        "description": "Semoule fine, légumes, agneau, poulet et merguez",
+        "prix": 18.00
+    },
+    {
+        "nom": "Thieboudienne",
+        "description": "Riz au poisson traditionnel sénégalais avec légumes",
+        "prix": 17.50
+    },
+    {
+        "nom": "Tajine de poulet aux olives et citron confit",
+        "description": "Cuisson lente dans un tajine marocain traditionnel",
+        "prix": 16.00
+    },
+    {
+        "nom": "Mafé",
+        "description": "Ragoût de bœuf à la sauce arachide, servi avec du riz blanc",
+        "prix": 15.00
+    }
+    ],
+    "desserts": [
+    {
+        "nom": "Makroud",
+        "description": "Gâteau de semoule fourré aux dattes, enrobé de miel",
+        "prix": 5.00
+    },
+    {
+        "nom": "Thiakry",
+        "description": "Dessert sénégalais à base de mil et de yaourt sucré à la vanille",
+        "prix": 4.50
+    },
+    {
+        "nom": "Baghrir au miel",
+        "description": "Crêpe mille trous marocaine servie avec beurre fondu et miel",
+        "prix": 4.00
+    }
+    ],
+    "boissons": [
+    {
+        "nom": "Thé à la menthe",
+        "description": "Thé vert marocain sucré et infusé avec de la menthe fraîche",
+        "prix": 2.50
+    },
+    {
+        "nom": "Bissap",
+        "description": "Boisson fraîche à base de fleurs d’hibiscus",
+        "prix": 3.00
+    },
+    {
+        "nom": "Jus de gingembre",
+        "description": "Boisson piquante et sucrée traditionnelle d’Afrique de l’Ouest",
+        "prix": 3.50
+    }
+    ]
+}

@@ -18,7 +18,7 @@ class FinanceView(QWidget):
         self.payment_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.payment_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
 
-        # ➕ ScrollArea pour limiter la hauteur à 10 lignes
+        # ScrollArea pour limiter la hauteur à 10 lignes
         payment_scroll = QScrollArea()
         payment_scroll.setWidgetResizable(True)
         payment_scroll.setWidget(self.payment_table)

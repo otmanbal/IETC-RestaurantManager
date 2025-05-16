@@ -49,7 +49,7 @@ CARTE_DESSERTS = [
     Dessert("Baklava pistache",4.20),
     Dessert("Mouhalabieh (flan au lait parfumé)",4.00),
 ]
-=======
+
 class Menu:
     """
     C'est une classe parent (Menu) qui contient les méthodes de base pour le menu
@@ -61,4 +61,4 @@ class Menu:
         self.ingredients = ingredients
         self.price = price
         self.LstMenu = []
->>>>>>> dev
+

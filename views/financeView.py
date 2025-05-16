@@ -6,6 +6,7 @@ from PySide6.QtWidgets import (
 class FinanceView(QWidget):
     def __init__(self):
         super().__init__()
+
         self.setWindowTitle("Finance View")
 
         # Layout principal vertical
@@ -39,6 +40,9 @@ class FinanceView(QWidget):
 
         layout.addWidget(QLabel("Daily Totals"))
         layout.addWidget(self.daily_total_table)
+
+        layout = QVBoxLayout()
+        layout.addWidget(QLabel("Vue des finances"))
 
         self.setLayout(layout)
 

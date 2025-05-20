@@ -1,5 +1,5 @@
 from fpdf import FPDF
-from logic.finance_manager import load_finances
+from models.finance_manager import load_finances
 from datetime import datetime
 
 def export_financial_report_pdf(filename="financial_report.pdf"):

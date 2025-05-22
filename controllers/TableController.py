@@ -1,4 +1,4 @@
-from views.table_dialog import TableDialog
+from views.tableDialog import TableDialog
 from models.persist import get_last_order, add_order, close_table
 
 class TableController:

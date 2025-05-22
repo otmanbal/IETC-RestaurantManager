@@ -2,17 +2,14 @@ import sys
 from pathlib import Path
 from PySide6.QtWidgets import QApplication
 
-from views.finance_view import FinanceView
+from views.financeView import FinanceView
 from controllers.finance_controller import FinanceController
 from views.mainWindow import mainWindow
+from views.tableView import TableView
 
 from controllers.TableController import TableController
 
-def main() -> None:
-    """Instancie QApplication + lance le contrôleur."""
-    app = QApplication(sys.argv)
-    TableController()              # crée les vues et affiche la fenêtre principale
-    sys.exit(app.exec())
+
 
 if __name__ == "__main__":
 
@@ -28,6 +25,10 @@ if __name__ == "__main__":
     sys.exit(app.exec())
     main_window = mainWindow()
     main_window.show()
+    
+    table_view = TableView()
+    table_view.show()
+    
     
     sys.exit(app.exec())
 

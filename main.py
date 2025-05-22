@@ -7,7 +7,7 @@ from controllers.finance_controller import FinanceController
 from views.mainWindow import mainWindow
 from views.tableView import TableView
 
-from controllers.TableController import TableController
+
 
 
 

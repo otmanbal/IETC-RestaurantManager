@@ -4,7 +4,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtGui import QPixmap, QIcon, QAction
 from PySide6.QtCore import QSize
-from views.tableDialog import TablesView
+from views.tableDialog import TableDialog
 from views.menuView import MenuView
 from views.financeView import FinanceView
 from views.profileView import ProfileView 

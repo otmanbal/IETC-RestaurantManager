@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLineEdit, QComboBox, QLabel, QMessageBox
-from logic.finance_manager import add_financial_record, get_financial_summary
-from logic.pdf_genarator import export_financial_report_pdf
+from models.finance_manager import add_financial_record, get_financial_summary
+from models.pdf_generator import export_financial_report_pdf
 
 class FinancesWindow(QWidget):
     def __init__(self):

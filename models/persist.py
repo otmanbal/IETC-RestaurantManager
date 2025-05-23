@@ -1,44 +1,44 @@
-# models/persist.py
-import json, datetime
+import json
+from datetime import datetime
 from pathlib import Path
-from models.order import TableState, Order, OrderItem
+from typing import Any, Dict, List
 
-FILE = Path(__file__).with_name("orders.json")
+FILE = Path(__file__).parent / "orders.json"
 
-def load_states() -> dict[int, TableState]:
-    if not FILE.exists(): return {}
-    raw = json.loads(FILE.read_text(encoding="utf‑8"))
-    states = {}
-    for t in raw:
-        order = None
-        if t["order"]:
-            order = Order(
-                entrees  =[OrderItem(**d) for d in t["order"]["entrees"]],
-                plats    =[OrderItem(**d) for d in t["order"]["plats"]],
-                desserts =[OrderItem(**d) for d in t["order"]["desserts"]],
-            )
-        states[t["table"]] = TableState(
-            table_id=t["table"],
-            seats=t["seats"],
-            status=t["status"],
-            order=order
-        )
-    return states
+def read_orders() -> List[Dict[str, Any]]:
+    if FILE.exists():
+        with FILE.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
 
-def save_state(state: TableState):
-    data = load_states()
-    data[state.table_id] = state
-    # sérialisation → JSON
-    out = []
-    for s in data.values():
-        out.append({
-            "table":  s.table_id,
-            "seats":  s.seats,
-            "status": s.status,
-            "order": (None if not s.order else {
-                "entrees":  [vars(i) for i in s.order.entrees],
-                "plats":    [vars(i) for i in s.order.plats],
-                "desserts": [vars(i) for i in s.order.desserts],
-            })
+def write_orders(data: List[Dict[str, Any]]) -> None:
+    with FILE.open("w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+def add_order(table_id: int, order: Dict[str, Any]) -> None:
+    data = read_orders()
+    if data and data[-1]["table"] == table_id and data[-1]["status"] == "occupied":
+        data[-1]["order"] = order
+    else:
+        data.append({
+            "table": table_id,
+            "timestamp": datetime.now().isoformat(timespec="seconds"),
+            "status": "occupied",
+            "order": order
         })
-    FILE.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf‑8")
+    write_orders(data)
+
+def close_table(table_id: int) -> None:
+    data = read_orders()
+    for entry in reversed(data):
+        if entry["table"] == table_id and entry["status"] == "occupied":
+            entry["status"] = "free"
+            break
+    write_orders(data)
+
+def get_last_order(table_id: int) -> dict | None:
+    data = read_orders()
+    for entry in reversed(data):
+        if entry["table"] == table_id and entry["status"] == "occupied":
+            return entry["order"]
+    return None

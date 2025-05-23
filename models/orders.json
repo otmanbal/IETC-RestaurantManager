@@ -1,0 +1,40 @@
+[
+  {
+    "table": 2,
+    "timestamp": "2025-05-23T19:05:56",
+    "status": "occupied",
+    "order": {
+      "entrees": [
+        {
+          "name": "Accra de morue (beignets de poisson)",
+          "price": 6.0,
+          "qty": 1
+        }
+      ],
+      "plats": [],
+      "desserts": []
+    }
+  },
+  {
+    "table": 1,
+    "timestamp": "2025-05-23T20:07:41",
+    "status": "occupied",
+    "order": {
+      "entrees": [
+        {
+          "name": "Accra de morue (beignets de poisson)",
+          "price": 6.0,
+          "qty": 6
+        }
+      ],
+      "plats": [
+        {
+          "name": "Poulet DG (Directeur Général)",
+          "price": 17.5,
+          "qty": 6
+        }
+      ],
+      "desserts": []
+    }
+  }
+]

@@ -4,11 +4,12 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtGui import QPixmap, QIcon, QAction
 from PySide6.QtCore import QSize
-from views.tablesView import TableView
+from views.tableDialog import TableDialog
 from views.menuView import MenuView
 from views.financeView import FinanceView
 from views.profileView import ProfileView 
 from views.adminView import AdminView
+from views.tableView import TableView
 
 class mainWindow(QMainWindow):
     def __init__(self):

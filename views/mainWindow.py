@@ -4,7 +4,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtGui import QPixmap, QIcon, QAction
 from PySide6.QtCore import QSize
-from views.tablesView import TablesView
+from views.tablesView import TableView
 from views.menuView import MenuView
 from views.financeView import FinanceView
 from views.profileView import ProfileView 
@@ -25,7 +25,7 @@ class mainWindow(QMainWindow):
         self.setCentralWidget(self.stack)
 
         # Pages
-        self.page_tables = TablesView()
+        self.page_tables = TableView()
         self.page_menu = MenuView()
         self.page_finance = FinanceView()
         self.page_profil = AdminView()  # Nouvelle page profil

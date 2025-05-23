@@ -1,10 +1,10 @@
 # controllers/table_controller.py
 from models import persist                 # <- models/persist.py
 from models.order import TableState
-from models.menu import CARTE              # <- dict ou objet carte
+from models.Menu import CARTE              # <- dict ou objet carte
 
 from views.main_view import MainView   # <- vue principale
-from views.tables_view import TableView # <- popup commande
+from views.tablesView import TableView # <- popup commande
 
 # config fixe : table_id -> seats
 TABLE_CONFIG = {1: 8, 2: 4, 3: 4, 4: 2, 5: 4, 6: 4, 7: 2, 8: 6, 9: 2}

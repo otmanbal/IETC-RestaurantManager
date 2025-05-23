@@ -4,7 +4,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 
-from models.menu import CARTE_ENTREES, CARTE_PLATS, CARTE_DESSERTS, MenuItem
+from models.Menu import CARTE_ENTREES, CARTE_PLATS, CARTE_DESSERTS, MenuItem
 
 
 class TableView(QDialog):

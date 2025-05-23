@@ -1,5 +1,6 @@
 import json
 import os
+from pathlib import Path
 from PySide6.QtWidgets import (
     QWidget, QLabel, QLineEdit, QPushButton,
     QVBoxLayout, QMessageBox
@@ -42,12 +43,14 @@ class LoginPage(QWidget):
         self.setLayout(layout)
 
     def load_users(self):
-        if not os.path.exists("employes.json"):
+        file_path = Path(__file__).parent.parent / "database" / "employes.json"
+        print("voici le path frerot : ",file_path)
+        if not os.path.exists(file_path):
             QMessageBox.critical(self, "Erreur", "Fichier des utilisateurs introuvable.")
             return []
 
         try:
-            with open("employes.json", 'r', encoding="utf-8") as f:
+            with open(file_path, 'r', encoding="utf-8") as f:
                 data = json.load(f)
                 return data.get("users", [])
         except json.JSONDecodeError:

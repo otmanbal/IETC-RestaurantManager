@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QMainWindow
 from PySide6.QtCore import Qt
 
 from models.order import TableState
-from models.menu import TABLE_SIZE_MAP
+from models.Menu import TABLE_SIZE_MAP
 
 # views/main_window.py
 class MainView(QMainWindow):

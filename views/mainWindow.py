@@ -9,6 +9,7 @@ from views.menuView import MenuView
 from views.financeView import FinanceView
 from views.profileView import ProfileView 
 from views.adminView import AdminView
+from views.tableView import TableView
 
 class mainWindow(QMainWindow):
     def __init__(self):
@@ -25,7 +26,7 @@ class mainWindow(QMainWindow):
         self.setCentralWidget(self.stack)
 
         # Pages
-        self.page_tables = TablesView()
+        self.page_tables = TableView()
         self.page_menu = MenuView()
         self.page_finance = FinanceView()
         self.page_profil = AdminView()  # Nouvelle page profil

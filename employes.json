@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nom": "Alice Dupont",
+    "poste": "Serveuse",
+    "statut": "Actif"
+  },
+  {
+    "id": 2,
+    "nom": "Jean Martin",
+    "poste": "Cuisinier",
+    "statut": "Inactif"
+  }
+]

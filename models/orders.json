@@ -1,0 +1,18 @@
+[
+  {
+    "table": 2,
+    "timestamp": "2025-05-23T19:05:56",
+    "status": "occupied",
+    "order": {
+      "entrees": [
+        {
+          "name": "Accra de morue (beignets de poisson)",
+          "price": 6.0,
+          "qty": 1
+        }
+      ],
+      "plats": [],
+      "desserts": []
+    }
+  }
+]

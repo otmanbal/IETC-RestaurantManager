@@ -1,5 +1,5 @@
 from models.reservation_models import ReservationModel
-from views.finance_view import FinanceView
+from views.financeView import FinanceView
 
 class FinanceController:
     def __init__(self, view: FinanceView):

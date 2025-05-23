@@ -1,0 +1,33 @@
+[
+  {
+    "table": 2,
+    "timestamp": "2025-05-23T19:05:56",
+    "status": "occupied",
+    "order": {
+      "entrees": [
+        {
+          "name": "Accra de morue (beignets de poisson)",
+          "price": 6.0,
+          "qty": 4
+        },
+        {
+          "name": "Salade de papaye verte",
+          "price": 5.5,
+          "qty": 2
+        },
+        {
+          "name": "Briouates au fromage",
+          "price": 6.2,
+          "qty": 2
+        },
+        {
+          "name": "Houmous traditionnel",
+          "price": 5.5,
+          "qty": 2
+        }
+      ],
+      "plats": [],
+      "desserts": []
+    }
+  }
+]

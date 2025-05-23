@@ -1,20 +1,16 @@
 {
-    "admins": [
+    "users": [
       {
         "id": 1,
         "nom": "admin",
         "mot_de_passe": "1234",
-        "poste": "Administrateur",
-        "statut": "Actif"
-      }
-    ],
-    "users": [
+        "isAdmin": true
+      },
       {
         "id": 2,
         "nom": "Hussein",
         "mot_de_passe": "1234",
-        "poste": "Serveur",
-        "statut": "Actif"
+        "isAdmin": false
       }
     ]
   }

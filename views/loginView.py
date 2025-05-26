@@ -44,7 +44,6 @@ class LoginPage(QWidget):
 
     def load_users(self):
         file_path = Path(__file__).parent.parent / "database" / "employes.json"
-        print("voici le path frerot : ",file_path)
         if not os.path.exists(file_path):
             QMessageBox.critical(self, "Erreur", "Fichier des utilisateurs introuvable.")
             return []

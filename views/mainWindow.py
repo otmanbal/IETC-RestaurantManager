@@ -27,12 +27,12 @@ class mainWindow(QMainWindow):
 
         # Pages
         self.page_tables = TableView()
-        self.page_menu = MenuView()
+        self.page_admin = AdminView()
         self.page_finance = FinanceView()
         self.page_profil = AdminView()  # Nouvelle page profil
 
         self.stack.addWidget(self.page_tables)   # index 0
-        self.stack.addWidget(self.page_menu)     # index 1
+        self.stack.addWidget(self.page_admin)     # index 1
         self.stack.addWidget(self.page_finance)  # index 2
         self.stack.addWidget(self.page_profil)   # index 3
 
@@ -41,7 +41,7 @@ class mainWindow(QMainWindow):
         action_tables.triggered.connect(lambda: self.stack.setCurrentIndex(0))
         toolbar.addAction(action_tables)
 
-        action_menu = QAction("Menu", self)
+        action_menu = QAction("Admin", self)
         action_menu.triggered.connect(lambda: self.stack.setCurrentIndex(1))
         toolbar.addAction(action_menu)
 

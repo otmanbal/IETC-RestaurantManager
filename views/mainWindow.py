@@ -1,15 +1,15 @@
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QToolBar, QStackedWidget,
-    QWidget, QSizePolicy
+    QMainWindow, QToolBar, QStackedWidget, QWidget,
+    QSizePolicy, QMenu
 )
 from PySide6.QtGui import QPixmap, QIcon, QAction
-from PySide6.QtCore import QSize
-from views.tableDialog import TableDialog
-from views.menuView import MenuView
-from views.financeView import FinanceView
-from views.profileView import ProfileView 
-from views.adminView import AdminView
+from PySide6.QtCore import QSize, QPoint, QTimer
+
 from views.tableView import TableView
+from views.adminView import AdminView
+from views.financeView import FinanceView
+from views.loginView import LoginPage
+
 
 class mainWindow(QMainWindow):
     def __init__(self):
@@ -29,38 +29,58 @@ class mainWindow(QMainWindow):
         self.page_tables = TableView()
         self.page_admin = AdminView()
         self.page_finance = FinanceView()
-        self.page_profil = AdminView()  # Nouvelle page profil
 
-        self.stack.addWidget(self.page_tables)   # index 0
+        self.stack.addWidget(self.page_tables)    # index 0
         self.stack.addWidget(self.page_admin)     # index 1
-        self.stack.addWidget(self.page_finance)  # index 2
-        self.stack.addWidget(self.page_profil)   # index 3
+        self.stack.addWidget(self.page_finance)   # index 2
 
-        # Actions navigation
+        # Actions de navigation
         action_tables = QAction("Tables", self)
         action_tables.triggered.connect(lambda: self.stack.setCurrentIndex(0))
         toolbar.addAction(action_tables)
 
-        action_menu = QAction("Admin", self)
-        action_menu.triggered.connect(lambda: self.stack.setCurrentIndex(1))
-        toolbar.addAction(action_menu)
+        action_admin = QAction("Admin", self)
+        action_admin.triggered.connect(lambda: self.stack.setCurrentIndex(1))
+        toolbar.addAction(action_admin)
 
         action_finance = QAction("Finance", self)
         action_finance.triggered.connect(lambda: self.stack.setCurrentIndex(2))
         toolbar.addAction(action_finance)
 
-        # Spacer pour pousser l'action Profil à droite
+        # Spacer pour pousser le profil à droite
         spacer = QWidget()
         spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         toolbar.addWidget(spacer)
 
-        # Ajout photo de profil ronde
+        # Icône de profil avec menu
         profile_pixmap = QPixmap("ressources/images/pdp.webp")
         profile_icon = QIcon(profile_pixmap.scaled(40, 40))
-
         action_profil = QAction(profile_icon, "", self)
         action_profil.setToolTip("Profil")
-        action_profil.triggered.connect(lambda: self.stack.setCurrentIndex(3))
         toolbar.addAction(action_profil)
-        toolbar.setIconSize(QSize(40, 40))  # Taille de l’icône
+        toolbar.setIconSize(QSize(40, 40))
 
+        # Menu contextuel pour le profil
+        self.profile_menu = QMenu(self)
+        self.profile_menu.addAction("Se déconnecter", self.logout)
+
+        # Affichage du menu sur clic
+        action_profil.triggered.connect(self.show_profile_menu)
+
+    def show_profile_menu(self):
+        pos = self.mapToGlobal(QPoint(self.width() - 60, 50))
+        self.profile_menu.exec(pos)
+
+    def logout(self):
+        # Créer une nouvelle page de login
+        self.login_page = LoginPage()
+        self.login_page.login_successful.connect(self.reopen_main_window)
+        self.login_page.show()
+
+        # Fermer la fenêtre principale juste après
+        QTimer.singleShot(0, self.close)
+
+    def reopen_main_window(self, username, is_admin):
+        self.login_page.close()
+        new_window = mainWindow()
+        new_window.show()

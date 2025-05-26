@@ -12,10 +12,13 @@ from views.loginView import LoginPage
 
 
 class mainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, username=None, is_admin=False):
         super().__init__()
-        self.setWindowTitle("Restaurant Manager")
+        self.setWindowTitle(f"Restaurant Manager - Connecté en tant que {username}")
         self.resize(800, 600)
+
+        self.username = username
+        self.is_admin = is_admin
 
         # Navigation
         toolbar = QToolBar("Navigation")
@@ -34,18 +37,23 @@ class mainWindow(QMainWindow):
         self.stack.addWidget(self.page_admin)     # index 1
         self.stack.addWidget(self.page_finance)   # index 2
 
-        # Actions de navigation
-        action_tables = QAction("Tables", self)
-        action_tables.triggered.connect(lambda: self.stack.setCurrentIndex(0))
-        toolbar.addAction(action_tables)
+        # Actions navigation
+        self.action_tables = QAction("Tables", self)
+        self.action_tables.triggered.connect(lambda: self.stack.setCurrentIndex(0))
+        toolbar.addAction(self.action_tables)
 
-        action_admin = QAction("Admin", self)
-        action_admin.triggered.connect(lambda: self.stack.setCurrentIndex(1))
-        toolbar.addAction(action_admin)
+        self.action_admin = QAction("Admin", self)
+        self.action_admin.triggered.connect(lambda: self.stack.setCurrentIndex(1))
+        toolbar.addAction(self.action_admin)
 
-        action_finance = QAction("Finance", self)
-        action_finance.triggered.connect(lambda: self.stack.setCurrentIndex(2))
-        toolbar.addAction(action_finance)
+        self.action_finance = QAction("Finance", self)
+        self.action_finance.triggered.connect(lambda: self.stack.setCurrentIndex(2))
+        toolbar.addAction(self.action_finance)
+
+        # Restriction des actions si non admin
+        if not self.is_admin:
+            self.action_admin.setEnabled(False)
+            self.action_finance.setEnabled(False)
 
         # Spacer pour pousser le profil à droite
         spacer = QWidget()
@@ -60,11 +68,9 @@ class mainWindow(QMainWindow):
         toolbar.addAction(action_profil)
         toolbar.setIconSize(QSize(40, 40))
 
-        # Menu contextuel pour le profil
+        # Menu contextuel pour profil
         self.profile_menu = QMenu(self)
         self.profile_menu.addAction("Se déconnecter", self.logout)
-
-        # Affichage du menu sur clic
         action_profil.triggered.connect(self.show_profile_menu)
 
     def show_profile_menu(self):
@@ -72,15 +78,13 @@ class mainWindow(QMainWindow):
         self.profile_menu.exec(pos)
 
     def logout(self):
-        # Créer une nouvelle page de login
         self.login_page = LoginPage()
         self.login_page.login_successful.connect(self.reopen_main_window)
         self.login_page.show()
 
-        # Fermer la fenêtre principale juste après
         QTimer.singleShot(0, self.close)
 
     def reopen_main_window(self, username, is_admin):
         self.login_page.close()
-        new_window = mainWindow()
-        new_window.show()
+        self.new_window = mainWindow(username=username, is_admin=is_admin)
+        self.new_window.show()

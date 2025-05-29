@@ -2,7 +2,7 @@
   {
     "table": 2,
     "timestamp": "2025-05-23T19:05:56",
-    "status": "occupied",
+    "status": "free",
     "order": {
       "entrees": [
         {
@@ -13,6 +13,39 @@
       ],
       "plats": [],
       "desserts": []
+    }
+  },
+  {
+    "table": 1,
+    "timestamp": "2025-05-27T19:48:20",
+    "status": "free",
+    "order": {
+      "entrees": [
+        {
+          "name": "Salade de papaye verte",
+          "price": 5.5,
+          "qty": 1
+        }
+      ],
+      "plats": [
+        {
+          "name": "Poulet DG (Directeur Général)",
+          "price": 17.5,
+          "qty": 1
+        },
+        {
+          "name": "Kefta de boeuf grillée",
+          "price": 15.0,
+          "qty": 1
+        }
+      ],
+      "desserts": [
+        {
+          "name": "Beignets banane",
+          "price": 4.2,
+          "qty": 1
+        }
+      ]
     }
   }
 ]

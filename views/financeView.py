@@ -2,24 +2,23 @@ from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QLabel, QTableWidget, QTableWidgetItem,
     QHeaderView, QAbstractScrollArea, QScrollArea
 )
-from orders_by_date_view import OrdersByDateView
+from orders_by_date_view import OrdersByDateView  # 👈 Importation
 
 class FinanceView(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Finance View")
 
-        # Layout principal vertical
         layout = QVBoxLayout(self)
 
-        # Création du tableau du haut : paiements
+        # Tableau du haut : paiements
         self.payment_table = QTableWidget()
         self.payment_table.setColumnCount(5)
         self.payment_table.setHorizontalHeaderLabels(["ID", "Table No.", "Date", "Payment Type", "Price"])
         self.payment_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.payment_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
 
-        # ScrollArea pour limiter la hauteur à 10 lignes
+        # Scroll pour le tableau du haut
         payment_scroll = QScrollArea()
         payment_scroll.setWidgetResizable(True)
         payment_scroll.setWidget(self.payment_table)
@@ -34,20 +33,17 @@ class FinanceView(QWidget):
         self.daily_total_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.daily_total_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
 
-        # Connexion du clic sur la table du bas
+        # Connexion du clic pour afficher les commandes du jour
         self.daily_total_table.cellClicked.connect(self.show_daily_orders)
 
         # Ajout au layout
         layout.addWidget(QLabel("Payment Records"))
         layout.addWidget(payment_scroll)
-
         layout.addWidget(QLabel("Daily Totals"))
         layout.addWidget(self.daily_total_table)
-
         self.setLayout(layout)
 
     def populate_payments(self, payment_list):
-        """Remplit le tableau de paiements avec les données."""
         self.payment_table.setRowCount(0)
         for record in payment_list:
             row = self.payment_table.rowCount()
@@ -59,7 +55,6 @@ class FinanceView(QWidget):
             self.payment_table.setItem(row, 4, QTableWidgetItem(f"{record['price']:.2f}"))
 
     def populate_daily_totals(self, totals_list):
-        """Remplit le tableau du bas avec les totaux journaliers."""
         self.daily_total_table.setRowCount(0)
         for record in totals_list:
             row = self.daily_total_table.rowCount()

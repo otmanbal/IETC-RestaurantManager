@@ -2,7 +2,7 @@ from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QLabel, QTableWidget, QTableWidgetItem,
     QHeaderView, QAbstractScrollArea, QScrollArea
 )
-from orders_by_date_view import OrdersByDateView  # 👈 Importation
+from .orders_by_date_view import OrdersByDateView
 
 class FinanceView(QWidget):
     def __init__(self):

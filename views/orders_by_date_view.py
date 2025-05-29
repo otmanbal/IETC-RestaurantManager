@@ -16,8 +16,12 @@ class OrdersByDateView(QWidget):
         layout.addWidget(QLabel(f"Commandes du {date}"))
 
         # Charger les réservations depuis le fichier JSON
-        with open("reservations.json", "r") as f:
-            all_orders = json.load(f)
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        JSON_PATH = os.path.join(BASE_DIR, "database", "reservations.json")
+
+        with open(JSON_PATH, "r") as f:
+             all_orders = json.load(f)
+
 
         # Filtrer les réservations du jour
         orders_of_the_day = []

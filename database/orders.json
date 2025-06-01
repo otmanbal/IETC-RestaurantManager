@@ -1,0 +1,66 @@
+[
+  {
+    "table": 2,
+    "timestamp": "2025-06-01T13:58:16",
+    "status": "occupied",
+    "order": {
+      "entrees": [
+        {
+          "name": "Accra de morue (beignets de poisson)",
+          "price": 6.0,
+          "qty": 1
+        },
+        {
+          "name": "Salade de papaye verte",
+          "price": 5.5,
+          "qty": 1
+        }
+      ],
+      "plats": [],
+      "desserts": [],
+      "reservation_time": "Midi (12h-14h) - 13:58",
+      "datetime_iso": "2025-06-01T13:58:16.573461"
+    }
+  },
+  {
+    "table": 3,
+    "timestamp": "2025-06-01T13:59:59",
+    "status": "occupied",
+    "order": {
+      "entrees": [
+        {
+          "name": "Houmous traditionnel",
+          "price": 5.5,
+          "qty": 2
+        }
+      ],
+      "plats": [],
+      "desserts": [],
+      "reservation_time": "Soir (18h-22h) - 17:59",
+      "datetime_iso": "2025-06-01T13:59:59.509996"
+    }
+  },
+  {
+    "table": 2,
+    "timestamp": "2025-06-01T14:12:23",
+    "status": "occupied",
+    "order": {
+      "entrees": [
+        {
+          "name": "Accra de morue (beignets de poisson)",
+          "price": 6.0,
+          "qty": 1
+        },
+        {
+          "name": "Salade de papaye verte",
+          "price": 5.5,
+          "qty": 1
+        }
+      ],
+      "plats": [],
+      "desserts": [],
+      "reservation_time": "Midi (12h-14h) - 14:15",
+      "datetime_iso": "2025-06-01T14:15:40.577309"
+    }
+  }
+]

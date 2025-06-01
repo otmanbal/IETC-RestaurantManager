@@ -12,7 +12,8 @@ class TableController:
             btn = self.main_window.buttons[table_id]
             if dialog.occupied:
                 add_order(table_id, dialog.order)
-                total = sum(item["price"] * item["qty"] for cat in dialog.order.values() for item in cat)
+                order = dialog.order
+                total = sum(item["price"] * item["qty"] for key in ("entrees", "plats", "desserts") for item in order.get(key, []))
                 btn.setStyleSheet("background-color: red;")
                 btn.setText(f"{label}\nTotal : {total:.2f} €")
             else:

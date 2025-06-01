@@ -1,6 +1,7 @@
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QHBoxLayout, QPushButton, QFrame, QSpinBox
-from PySide6.QtCore import Qt
-from models.menu import CARTE_ENTREES, CARTE_PLATS, CARTE_DESSERTS, MenuItem
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QHBoxLayout, QPushButton, QFrame, QSpinBox, QComboBox, QTimeEdit
+from PySide6.QtCore import Qt, QTime
+from datetime import datetime
+from models.Menu import CARTE_ENTREES, CARTE_PLATS, CARTE_DESSERTS, MenuItem
 
 class TableDialog(QDialog):
     def __init__(self, table_label: str, previous_order=None, parent=None):
@@ -14,6 +15,15 @@ class TableDialog(QDialog):
 
     def _build_ui(self):
         main = QVBoxLayout(self)
+        self.service_combo = QComboBox()
+        self.service_combo.addItems(["Midi (12h-14h)", "Soir (18h-22h)"])
+        main.addWidget(QLabel("Choisissez le service :"))
+        main.addWidget(self.service_combo)
+        self.time_edit = QTimeEdit()
+        self.time_edit.setTime(QTime.currentTime())
+        self.time_edit.setDisplayFormat("HH:mm")
+        main.addWidget(QLabel("Heure de réservation :"))
+        main.addWidget(self.time_edit)
         main.addWidget(QLabel(f"Choisissez l'état de : {self.windowTitle()}"), alignment=Qt.AlignCenter)
 
         buttons = QHBoxLayout()
@@ -95,6 +105,10 @@ class TableDialog(QDialog):
             "desserts": collect(self.dessert_spins)
         }
         self.accept()
+        selected_service = self.service_combo.currentText()
+        hour_str = self.time_edit.time().toString("HH:mm")
+        self.order["reservation_time"] = f"{selected_service} - {hour_str}"
+        self.order["datetime_iso"] = datetime.now().isoformat()
 
     def set_free(self):
         self.occupied = False

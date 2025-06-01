@@ -3,13 +3,14 @@ from PySide6.QtWidgets import (
     QWidget, QSizePolicy
 )
 from PySide6.QtGui import QPixmap, QIcon, QAction
-from PySide6.QtCore import QSize
+from PySide6.QtCore import QSize, QTimer, QTime
 from views.tableDialog import TableDialog
 from views.menuView import MenuView
 from views.financeView import FinanceView
 from views.profileView import ProfileView 
 from views.adminView import AdminView
 from views.tableView import TableView
+from models.persist import get_last_order, add_order, close_table
 
 class mainWindow(QMainWindow):
     def __init__(self):
@@ -63,4 +64,27 @@ class mainWindow(QMainWindow):
         action_profil.triggered.connect(lambda: self.stack.setCurrentIndex(3))
         toolbar.addAction(action_profil)
         toolbar.setIconSize(QSize(40, 40))  # Taille de l’icône
+
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.checkTableRelease)
+        self.timer.start(60_000)
+        
+    def checkTableRelease(self):
+        now = QTime.currentTime()
+
+        # Plage de libération automatique : dans les 5 minutes après la fin du service
+        if QTime(14, 16) <= now < QTime(14, 18) or QTime(22, 0) <= now < QTime(22, 5):
+            for table_id, btn in self.buttons.items():
+                order = get_last_order(table_id)
+                if not order:
+                    continue
+
+                reservation = order.get("reservation_time", "")
+                is_midi = "Midi" in reservation and now >= QTime(14, 16)
+                is_night = "Soir" in reservation and now >= QTime(22, 0)
+
+                if is_midi or is_night:
+                    close_table(table_id)
+                    btn.setStyleSheet("background-color: green;")
+                    btn.setText(f"Table {table_id}")
 

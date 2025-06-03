@@ -43,7 +43,7 @@
   {
     "table": 2,
     "timestamp": "2025-06-01T14:12:23",
-    "status": "occupied",
+    "status": "free",
     "order": {
       "entrees": [
         {

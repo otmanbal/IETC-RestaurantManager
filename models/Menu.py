@@ -1,16 +1,16 @@
 from dataclasses import dataclass
 
 @dataclass
-class MenuItem:
+class Menu:
     name: str
     price: float
 
     def __str__(self) -> str:
         return f"{self.name} – {self.price:.2f} €"
 
-class Entree(MenuItem): pass
-class Plat(MenuItem): pass
-class Dessert(MenuItem): pass
+class Entree(Menu): pass
+class Plat(Menu): pass
+class Dessert(Menu): pass
 
 CARTE_ENTREES = [
     Entree("Accra de morue (beignets de poisson)", 6.00),

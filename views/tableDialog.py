@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QHBoxLayout, QPushButton, QFrame, QSpinBox, QComboBox, QTimeEdit
 from PySide6.QtCore import Qt, QTime
 from datetime import datetime
-from models.Menu import CARTE_ENTREES, CARTE_PLATS, CARTE_DESSERTS, MenuItem
+from models.Menu import CARTE_ENTREES, CARTE_PLATS, CARTE_DESSERTS
 
 class TableDialog(QDialog):
     def __init__(self, table_label: str, previous_order=None, parent=None):
